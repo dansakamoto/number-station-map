@@ -29,6 +29,8 @@ class ofApp : public ofBaseApp{
     
     ofImage img;
     
+    ofSoundPlayer synth [10];
+
     int trig1;
     int trig2;
     int trig3;

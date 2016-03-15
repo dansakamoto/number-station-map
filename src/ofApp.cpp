@@ -2,6 +2,14 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
+    
+    for(int i=0 ; i<10 ; i++){
+        synth[i].load("sounds/blip.wav");
+        synth[i].setVolume(0.75f);
+        synth[i].setMultiPlay(true);
+        synth[i].setSpeed (i * 0.5f + 0.7f);
+    }
+    
 
     counter = -1;
     itr = 0;
@@ -18,11 +26,12 @@ void ofApp::setup(){
     
     img.load("mapInverted.png");
     
-    
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
+    
+    ofSoundUpdate();
     
     int i=0;
     
@@ -59,8 +68,9 @@ void ofApp::update(){
     
     if(trigger){
         
-        if(trig[0] != 0){
+        if(trig[0+i] != 0){
             int x = trig[0+i];
+            synth[x-1].play();
             activeCircles[circCount][0] = countryCoords[x][0];
             activeCircles[circCount][1] = countryCoords[x][1];
             activeCircles[circCount][2] = 0;
@@ -71,8 +81,9 @@ void ofApp::update(){
                 circCount = 0;
             }
         }
-        if(trig2 != 0){
+        if(trig[1+i] != 0){
             int x = trig[1+i];
+            synth[x-1].play();
             activeCircles[circCount][0] = countryCoords[x][0];
             activeCircles[circCount][1] = countryCoords[x][1];
             activeCircles[circCount][2] = 0;
@@ -83,8 +94,9 @@ void ofApp::update(){
                 circCount = 0;
             }
         }
-        if(trig3 != 0){
+        if(trig[2+i] != 0){
             int x = trig[2+i];
+            synth[x-1].play();
             activeCircles[circCount][0] = countryCoords[x][0];
             activeCircles[circCount][1] = countryCoords[x][1];
             activeCircles[circCount][2] = 0;
@@ -95,8 +107,9 @@ void ofApp::update(){
                 circCount = 0;
             }
         }
-        if(trig4 != 0){
+        if(trig[3+i] != 0){
             int x = trig[3+i];
+            synth[x-1].play();
             activeCircles[circCount][0] = countryCoords[x][0];
             activeCircles[circCount][1] = countryCoords[x][1];
             activeCircles[circCount][2] = 0;
@@ -107,8 +120,9 @@ void ofApp::update(){
                 circCount = 0;
             }
         }
-        if(trig5 != 0){
+        if(trig[4+i] != 0){
             int x = trig[4+i];
+            synth[x-1].play();
             activeCircles[circCount][0] = countryCoords[x][0];
             activeCircles[circCount][1] = countryCoords[x][1];
             activeCircles[circCount][2] = 0;
@@ -137,6 +151,7 @@ void ofApp::draw(){
     ofSetColor(255,255,255);
     img.draw(0,0);
     
+    /*
     ofFill();
     for (int i = 0; i < 143; i++){
         for(int j = 0; j < 75; j++){
@@ -146,6 +161,7 @@ void ofApp::draw(){
         }
     }
     ofNoFill();
+     */
     
     ofSetColor(255,255,255);
     
