@@ -3,6 +3,8 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     
+    ofHideCursor();
+    
     for(int i=0 ; i<10 ; i++){
         synth[i].load("sounds/blip.wav");
         synth[i].setVolume(0.75f);
